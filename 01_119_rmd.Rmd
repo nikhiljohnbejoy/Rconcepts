@@ -1,0 +1,65 @@
+---
+title: "01_119_rmd"
+author: "Mark Niemann-Ross"
+date: "2/10/2020"
+output: html_document
+---
+Use rmd for documentation	
+Rmd is an R version of markdown, a common format for writing documentation. 
+Learning to create reproducible and documented course is essential for data scientists.
+
+Check out Ray Villalobos "Up and Running with Markdown"
+
+if you're using Rstudio - it's installed
+if you're not using rstudio, install.packages("rmarkdown")
+
+```{r}
+avector <- c(1:5)
+
+print(avector)
+```
+
+change to {r, echo = FALSE}
+```{r, echo=FALSE}
+avector <- c(1:5)
+
+print(avector)
+```
+
+change to {r, include=FALSE}
+```{r, include=FALSE}
+avector <- c(1:5)
+
+```
+
+removes all from view, then use that code in a later code block
+```{r}
+print(avector)
+```
+
+what languages are supported by knitr?
+
+```{r}
+names(knitr::knit_engines$get())
+Sys.which("python")
+```
+
+# add python.reticulate = false...
+
+```{python, python.reticulate = FALSE}
+x = 42 * 2
+print("python", x) 
+```
+
+Under windows, this won't work...
+```{bash}
+print "this is bash"
+```
+
+# Why not?
+
+```{r}
+Sys.which("bash") 
+```
+Sys.which comes up empty on windows because bash not installed
+
